@@ -2,6 +2,15 @@
 #define VOTESYSTEM_H
 
 #include <QMainWindow>
+#include <QDebug>
+#include <QHash>
+class Candidate
+{
+    public:Candidate(){}
+    Candidate(QString _name): name(_name){}
+    private:
+    QString name;
+};
 
 namespace Ui {
 class VoteSystem;
@@ -17,6 +26,9 @@ public:
 
 private:
     Ui::VoteSystem *ui;
+    QHash<int, QVector<Candidate> > setVotes();
+    Candidate plural();
+    QHash<int, QVector<Candidate>> votes;
 };
 
 #endif // VOTESYSTEM_H
